@@ -31,17 +31,11 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   final double _fontSize = 10000.0;
   List<List<int>> _results = [[], [], [], [], [], []];
-  // List<List<int>> _results = [[], [], [], [], [], []];
   double _screenHeight = 0;
   double? _appBarHeight;
   final int _numOfRow = 6;
   double _heightWithoutAppBar = 0;
   double _heightPerRowWithoutAppBar = 0;
-  // void _incrementCounter() {
-  //   setState(() {
-  //     _counter++;
-  //   });
-  // }
 
   @override
   Widget build(BuildContext context) {
