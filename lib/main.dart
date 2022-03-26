@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'KanTech'),
     );
   }
 }
@@ -32,7 +32,11 @@ class _MyHomePageState extends State<MyHomePage> {
   final double _fontSize = 10000.0;
   List<List<int>> _results = [[], [], [], [], [], []];
   // List<List<int>> _results = [[], [], [], [], [], []];
-
+  double _screenHeight = 0;
+  double? _appBarHeight;
+  final int _numOfRow = 6;
+  double _heightWithoutAppBar = 0;
+  double _heightPerRowWithoutAppBar = 0;
   // void _incrementCounter() {
   //   setState(() {
   //     _counter++;
@@ -43,41 +47,45 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
+    _screenHeight = MediaQuery.of(context).size.height;
+    _appBarHeight = AppBar().preferredSize.height;
+    _heightWithoutAppBar = _screenHeight - _appBarHeight!;
+    _heightPerRowWithoutAppBar = _heightWithoutAppBar / _numOfRow;
 
     return Scaffold(
-      // appBar: AppBar(
-      //   title: Text(widget.title),
-      // ),
+      appBar: AppBar(
+        title: Text(widget.title),
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Container(
-                height: screenHeight / 6,
+                height: _heightPerRowWithoutAppBar,
                 width: screenWidth,
                 alignment: const Alignment(0, 0),
                 color: Colors.blue[50],
                 child: displayOneRow(3)),
             Container(
-                height: screenHeight / 6,
+                height: _heightPerRowWithoutAppBar,
                 width: screenWidth,
                 alignment: const Alignment(0, 0),
                 color: Colors.blue[100],
                 child: displayOneRow(2)),
             Container(
-                height: screenHeight / 6,
+                height: _heightPerRowWithoutAppBar,
                 width: screenWidth,
                 alignment: const Alignment(0, 0),
                 color: Colors.blue[200],
                 child: displayOneRow(1)),
             Container(
-                height: screenHeight / 6,
+                height: _heightPerRowWithoutAppBar,
                 width: screenWidth,
                 alignment: const Alignment(0, 0),
                 color: Colors.blue[300],
                 child: displayOneRow(0)),
             Container(
-                height: screenHeight / 6,
+                height: _heightPerRowWithoutAppBar,
                 width: screenWidth,
                 alignment: const Alignment(0, 0),
                 color: Colors.blue[400],
@@ -104,7 +112,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           child: Icon(Icons.looks_one, size: _fontSize)),
                     ])),
             Container(
-              height: screenHeight / 6,
+              height: (_screenHeight - _appBarHeight!) / 6,
               width: screenWidth,
               alignment: const Alignment(0, 0),
               color: Colors.blue,
