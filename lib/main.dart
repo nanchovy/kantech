@@ -33,7 +33,7 @@ class _MyHomePageState extends State<MyHomePage> {
   List<List<int>> _results = [[], [], [], [], [], []];
   double _screenHeight = 0;
   double? _appBarHeight;
-  final int _numOfRow = 6;
+  final int _numOfRow = 5;
   double _heightWithoutAppBar = 0;
   double _heightPerRowWithoutAppBar = 0;
 
@@ -79,34 +79,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 color: Colors.blue[300],
                 child: displayOneRow(0)),
             Container(
-                height: _heightPerRowWithoutAppBar,
-                width: screenWidth,
-                alignment: const Alignment(0, 0),
-                color: Colors.blue[400],
-                child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      FittedBox(
-                          fit: BoxFit.fitHeight,
-                          child: Icon(Icons.looks_6, size: _fontSize)),
-                      FittedBox(
-                          fit: BoxFit.fitHeight,
-                          child: Icon(Icons.looks_5, size: _fontSize)),
-                      FittedBox(
-                          fit: BoxFit.fitHeight,
-                          child: Icon(Icons.looks_4, size: _fontSize)),
-                      FittedBox(
-                          fit: BoxFit.fitHeight,
-                          child: Icon(Icons.looks_3, size: _fontSize)),
-                      FittedBox(
-                          fit: BoxFit.fitHeight,
-                          child: Icon(Icons.looks_two, size: _fontSize)),
-                      FittedBox(
-                          fit: BoxFit.fitHeight,
-                          child: Icon(Icons.looks_one, size: _fontSize)),
-                    ])),
-            Container(
-              height: (_screenHeight - _appBarHeight!) / 6,
+              height: _heightPerRowWithoutAppBar,
               width: screenWidth,
               alignment: const Alignment(0, 0),
               color: Colors.blue,
